@@ -1,0 +1,214 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f6f6f6;
+  font-family: 'Poppins', sans-serif;
+}
+
+.contenido-principal {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.contenido-principal {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+h2 {
+  font-size: 2.4rem;
+  color: #c71585;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  width: 100px;
+  height: 4px;
+  background-color: #c71585;
+  display: block;
+  margin: 0.5rem auto 0 auto;
+  border-radius: 5px;
+}
+
+
+.descripcion-publicidad {
+  background: #fff0f5;
+  padding: 1.5rem 2rem;
+  border-left: 6px solid #c71585;
+  border-radius: 10px;
+  margin-bottom: 2.5rem;
+  transition: all 0.3s ease;
+}
+
+.descripcion-publicidad:hover {
+  box-shadow: 0 4px 15px rgba(199, 21, 133, 0.2);
+}
+
+
+.beneficios-publicidad {
+  background-color: #ffe4ec;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 2px dashed #c71585;
+  margin-bottom: 3rem;
+  transition: 0.3s ease;
+}
+
+.beneficios-publicidad:hover {
+  box-shadow: 0 6px 15px rgba(199, 21, 133, 0.15);
+}
+
+.beneficios-publicidad h3 {
+  color: #c71585;
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+.beneficios-publicidad ul {
+  list-style: none;
+  padding: 0;
+}
+
+.beneficios-publicidad li {
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.8rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  font-weight: 500;
+  color: #444;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.beneficios-publicidad li:hover {
+  transform: scale(1.02);
+  background-color: #ffe6f0;
+}
+
+.beneficios-publicidad li::before {
+  content: "✔";
+  color: #c71585;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+
+.imagen-publicitaria {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  transition: transform 0.4s ease;
+}
+
+.imagen-publicitaria:hover {
+  transform: scale(1.01);
+  filter: brightness(1.05);
+}
+
+.productos {
+  overflow-x: auto;
+  display: flex;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: #c71585 #fff0f5;
+}
+
+.productos::-webkit-scrollbar {
+  height: 8px;
+}
+
+.productos::-webkit-scrollbar-track {
+  background: #fff0f5;
+  border-radius: 10px;
+}
+
+.productos::-webkit-scrollbar-thumb {
+  background-color: #c71585;
+  border-radius: 10px;
+  border: 2px solid #fff0f5;
+}
+
+.producto {
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 0;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  transition: transform 0.3s ease;
+  position: relative;
+  min-width: 200px;
+}
+
+.producto:hover {
+  transform: scale(1.03);
+}
+
+.producto img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  align-self: center;
+}
+
+.etiqueta {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #c71585;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.producto h3 {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+  color: #333;
+  font-weight: 700;
+}
+
+.producto p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0.2rem 0;
+}
+
+.precio {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #c71585;
+  margin-top: 0.7rem;
+}
+
+
+.producto::before {
+  content: \"NEW\";
+  background-color: #000;
+  color: #fff;
+  font-size: 10px;
+  padding: 2px 6px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border-radius: 3px;
+ }

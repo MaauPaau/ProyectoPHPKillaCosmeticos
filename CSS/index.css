@@ -1,0 +1,259 @@
+
+:root {
+  --colorPrincipal: #FF7D7D;
+  --colorSecundario: #e91e63;
+  --gradienteFondo: linear-gradient(135deg, #ee8abc, #ffafbd);
+  --sombraTexto: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+section {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: aparecerArriba 0.6s ease forwards;
+  padding: 40px 20px; 
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: var(--colorPrincipal);
+  text-align: center;
+}
+
+.bannerPrincipal { 
+  background: url(../img/banner4.jpeg) no-repeat center center fixed;
+  background-size: cover;
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.bannerPrincipal::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.bannerPrincipal > * {
+  position: relative;
+  z-index: 2;
+}
+
+.bannerPrincipal::before {
+  content: " Nuevas colecciones disponibles por tiempo limitado ";
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #FFDDDD;
+  background-color: rgba(255, 125, 125, 0.85);
+  padding: 10px 20px;
+  border-radius: 20px;
+  z-index: 3;
+}
+
+.bannerPrincipal h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.bannerPrincipal p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.botonesBanner { 
+  margin-top: 20px;
+}
+
+
+.btnAccion { 
+  font-size: 1rem;
+  padding: 12px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btnAccion.principal { 
+  background-color: var(--colorPrincipal);
+  color: white;
+  margin-right: 10px;
+}
+
+.btnAccion.secundario { 
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.btnAccion:hover {
+  opacity: 0.8;
+}
+
+
+
+.ofertas { 
+  background: var(--gradienteFondo);
+  color: #fff;
+}
+
+.ofertas h2 {
+  color: var(--colorSecundario);
+  font-size: 2.8rem;
+  text-shadow: var(--sombraTexto);
+}
+
+.rejillaProductos { 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.tarjetaProducto, .articuloProducto { 
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  width: 280px;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease;
+  position: relative;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.tarjetaProducto img, .articuloProducto img {
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  object-fit: cover;
+}
+
+.bannersGrandes { 
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.bannersGrandes img {
+  width: 100%;
+  max-width: 280px;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.productosDestacados { 
+  margin: 60px 0;
+}
+
+
+
+.resenas {
+  background-color: #fff0f5;
+  display: flex;
+}
+
+.galeria { 
+  display: flex;
+  gap: 20px;
+  overflow-x: auto; 
+  padding: 20px 0;
+  width: 100%;
+  justify-content: flex-start; 
+  align-items: center;
+  justify-content: center;
+}
+
+.galeria img {
+  height: 200px;
+  min-width: 200px; 
+  border-radius: 10px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  align-items: center;
+  justify-content: center;
+}
+
+.beneficios {
+  background-color: var(--colorPrincipal);
+  color: white;
+}
+.beneficios
+  h2 {
+    color: white;
+  } 
+
+.listaBeneficios { 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.beneficio { 
+  max-width: 250px;
+  text-align: center;
+}
+
+.beneficio img { 
+    height: 55px; 
+    width: 55px; 
+    margin-bottom: 15px;
+    filter: invert(1); 
+}
+
+
+@keyframes aparecerArriba { 
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .bannerPrincipal h1 { font-size: 2.2rem; }
+  .bannerPrincipal p { font-size: 1rem; }
+  .btnAccion { padding: 10px 16px; font-size: 0.95rem; }
+  .ofertas h2 { font-size: 2rem; }
+  .rejillaProductos { gap: 20px; }
+  .tarjetaProducto, .articuloProducto { width: 45%; max-width: none; }
+  
+  .galeria { 
+    flex-direction: row; 
+    padding: 10px 0;
+  }
+  .galeria img { width: 180px; height: 180px; }
+  
+  .listaBeneficios { flex-direction: column; gap: 30px; }
+  .beneficio { max-width: 100%; }
+}
+
+@media (max-width: 576px) {
+  .bannerPrincipal h1 { font-size: 1.6rem; }
+  .bannerPrincipal p { font-size: 0.9rem; }
+  .bannerPrincipal::before { font-size: 1rem; padding: 10px 15px; }
+  
+  .tarjetaProducto, .articuloProducto { width: 90%; max-width: 320px; }
+  .bannersGrandes img { max-width: 90%; }
+}

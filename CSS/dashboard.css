@@ -1,0 +1,210 @@
+
+
+
+.dashboard-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    backdrop-filter: blur(3px);
+    background: rgba(0,0,0,0.55);
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+}
+.dashboard-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+
+.dashboard-panel {
+    position: fixed;
+    top: 0; right: -100%;
+    width: 75%;
+    max-width: 480px;
+    height: 100%;
+    background: #fff;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.25);
+    border-left: 4px solid #e91e63;
+    transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+    z-index: 1000;
+    overflow: hidden;
+}
+.dashboard-panel.active { right: 0; }
+
+
+
+
+
+.dashboard-header {
+    background: linear-gradient(135deg, #e91e63, #ff5b99);
+    color: white;
+    padding: 25px 20px;
+    position: relative;
+}
+
+
+.dashboard-close {
+    position: absolute;
+    top: 15px; right: 20px;
+    background: none; border: none;
+    font-size: 1.8rem; color: white;
+    cursor: pointer; transition: 0.2s;
+}
+.dashboard-close:hover { transform: scale(1.1); }
+
+
+.user-info {
+    display: flex; align-items: center; gap: 15px;
+}
+.user-avatar {
+    width: 70px; height: 70px; border-radius: 50%;
+    background: white; object-fit: cover; border: 2px solid white;
+}
+.user-info h2 { margin: 0; font-size: 1.3rem; }
+.user-info p { margin: 2px 0; font-size: 0.9rem; }
+.rol {
+    display: inline-block;
+    background: rgba(255,255,255,0.25);
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+}
+
+
+
+
+.dashboard-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    scrollbar-width: thin;
+}
+
+
+.dashboard-content::-webkit-scrollbar { width: 8px; }
+.dashboard-content::-webkit-scrollbar-thumb {
+    background: #ddd; border-radius: 6px;
+}
+
+
+.dashboard-content h3 {
+    margin: 20px 0 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex; align-items: center; gap: 10px;
+    color: #e91e63;
+    border-bottom: 2px solid #e91e63;
+    padding-bottom: 5px;
+}
+.dashboard-content h3:first-of-type {
+    color: #fff;
+    background: #e91e63;
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: none;
+}
+
+
+.dashboard-list {
+    list-style: none; padding: 0; margin: 10px 0 25px;
+}
+.dashboard-list li {
+    margin-bottom: 10px;
+}
+.dashboard-list a {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none;
+    color: #333;
+    background: #fafafa;
+    padding: 12px 15px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.dashboard-list a:hover {
+    background: #e91e63;
+    color: white;
+    transform: translateX(5px);
+}
+
+
+
+
+.dashboard-footer {
+    border-top: 1px solid #eee;
+    padding: 15px;
+    text-align: center;
+}
+.logout-btn {
+    display: inline-block;
+    background: #333;
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.logout-btn:hover { background: #000; }
+
+
+
+
+.cliente-info {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.info-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 1.2rem;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.info-card p {
+    margin: 8px 0;
+    font-size: 15px;
+}
+
+.info-card em {
+    color: #6b2d84;
+    font-style: italic;
+}
+
+
+
+
+
+
+@media (max-width: 600px) {
+    .dashboard-panel { width: 100%; }
+}
+@media (max-width: 400px) {
+    .user-info h2 { font-size: 1.1rem; }
+    .user-avatar { width: 60px; height: 60px; }
+}
+
+
+@keyframes slideIn {
+    from { right: -100%; }
+    to { right: 0; }
+}
+@keyframes slideOut {
+    from { right: 0; }
+    to { right: -100%; }
+}
+.dashboard-panel.active {
+    animation: slideIn 0.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+.dashboard-panel:not(.active) {
+    animation: slideOut 0.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}

@@ -1,0 +1,130 @@
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(233, 30, 99, 0.08);
+  overflow: hidden;
+}
+
+table th, table td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+table th {
+  background-color: #f8bbd0; 
+  color: #e91e63; 
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+table tr {
+  border-bottom: 1px solid #fce4ec; 
+  transition: background-color 0.3s ease;
+}
+
+table tr:nth-child(even) {
+  background-color: #fff0f6; 
+}
+
+table tr:hover {
+  background-color: #ffe4ec; 
+}
+
+
+table td a.btn-edit,
+table td a.btn-delete {
+  padding: 6px 12px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+table td a.btn-edit {
+  background-color: #f06292; 
+  color: #fff;
+}
+
+table td a.btn-edit:hover {
+  background-color: #ec407a;
+}
+
+table td a.btn-delete {
+  background-color: #f48fb1; 
+  color: #fff;
+}
+
+table td a.btn-delete:hover {
+  background-color: #f06292;
+}
+
+
+form input[type="text"] {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #f8bbd0;
+  margin-right: 8px;
+  width: 220px;
+  font-size: 14px;
+  background-color: #fff0f6;
+}
+
+form button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  background-color: #f06292;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+form button:hover {
+  background-color: #ec407a;
+}
+
+
+a.volver-panel {
+  padding: 10px 22px;
+  background-color: #f06292;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  display: inline-block;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+a.volver-panel:hover {
+  background-color: #ec407a;
+}
+
+
+@media (max-width: 768px) {
+  table th, table td {
+    padding: 10px 8px;
+    font-size: 13px;
+  }
+
+  form input[type="text"] {
+    width: 150px;
+  }
+}

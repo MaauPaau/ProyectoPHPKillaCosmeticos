@@ -1,0 +1,150 @@
+
+.nosotros {
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 20px;
+}
+
+
+.nosotrosPrincipal {
+    text-align: center;
+    margin-bottom: 60px;
+}
+.nosotrosPrincipal h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    color: #FF7D7D;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.nosotrosPrincipal p {
+    font-size: 1.125rem;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+    text-align: justify;
+    padding: 0 10px;
+}
+
+.team-section {
+    margin-bottom: 60px;
+    text-align: center;
+}
+.team-section h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #FF7D7D;
+}
+.team-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+
+.team-member {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    max-width: 300px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.team-member:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+.team-member img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+.team-member h3 {
+    font-size: 1.2rem;
+    color: #FF7D7D;
+    margin-bottom: 10px;
+}
+.team-member p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+
+
+
+.valores-section {
+    text-align: center;
+}
+.valores-section h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #FF7D7D;
+}
+.valores-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+
+.valor {
+    max-width: 260px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.valor:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+}
+.valor i {
+    font-size: 2.2rem;
+    color: #FF7D7D;
+    margin-bottom: 15px;
+}
+.valor h4 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+.valor p {
+    font-size: 0.9rem;
+    color: #444;
+    line-height: 1.6;
+}
+
+
+
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+@media (max-width: 768px) {
+    .team-cards,
+    .valores-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}
