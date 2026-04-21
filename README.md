@@ -1,7 +1,7 @@
 # Killa Cosméticos – Sistema Web de Gestión
 
 ## Descripción
-Sistema web desarrollado para la gestión de una tienda de cosméticos. Permite administrar productos, usuarios y operaciones mediante un panel de control con funcionalidades CRUD, facilitando la organización y control de información.
+Sistema web para la gestión de una tienda de cosméticos. Permite administrar productos, usuarios y operaciones mediante un panel de control con funcionalidades CRUD, facilitando el manejo y organización de la información.
 
 ## Tecnologías
 - PHP
@@ -15,10 +15,10 @@ Sistema web desarrollado para la gestión de una tienda de cosméticos. Permite 
 - Gestión de productos, usuarios, ventas, pedidos, categorías y clientes
 - Operaciones CRUD completas
 - Control de acceso mediante sesiones
-- Navegación con páginas públicas e internas
+- Navegación entre páginas públicas y privadas
 
 ## Arquitectura
-- Separación básica entre frontend (HTML/CSS) y backend (PHP)
+- Separación entre frontend (HTML/CSS) y backend (PHP)
 - Conexión a base de datos MySQL mediante scripts dedicados
 - Organización modular del código por funcionalidades
 
@@ -27,15 +27,15 @@ Sistema web desarrollado para la gestión de una tienda de cosméticos. Permite 
 - /CSS → estilos
 - /PHP → lógica del backend
 - /img → recursos gráficos
-- basekilla2.sql → base de datos
+- basekilla2.sql → script de base de datos
 
 ## Instalación
-1. Clonar el repositorio
-2. Colocar el proyecto en `htdocs`
-3. Crear la base de datos `basekilla2`
-4. Importar el archivo `.sql`
-5. Configurar credenciales en `PHP/conectar.php`
-6. Ejecutar en `http://localhost/...`
+1. Clonar el repositorio  
+2. Copiar el proyecto en `htdocs` (XAMPP)  
+3. Crear la base de datos `basekilla2`  
+4. Importar el archivo `.sql`  
+5. Configurar credenciales en `PHP/conectar.php`  
+6. Ejecutar en `http://localhost/...`  
 
 ## Autor
 Mauricio Alejandro Flores Tapia
