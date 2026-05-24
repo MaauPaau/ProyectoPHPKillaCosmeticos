@@ -1,0 +1,6 @@
+/vendor/
+.env
+*.log
+test.pdf
+report_output.txt
+test_output.html

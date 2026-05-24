@@ -5,11 +5,18 @@ use mysqli;
 use Exception;
 
 class Database {
-    private $host = "localhost";
-    private $db_name = "basekilla2";
-    private $username = "root";
-    private $password = "";
+    private $host;
+    private $db_name;
+    private $username;
+    private $password;
     public $conn;
+
+    public function __construct() {
+        $this->host = $_ENV['DB_HOST'] ?? getenv('DB_HOST') ?: "localhost";
+        $this->db_name = $_ENV['DB_NAME'] ?? getenv('DB_NAME') ?: "basekilla2";
+        $this->username = $_ENV['DB_USER'] ?? getenv('DB_USER') ?: "root";
+        $this->password = $_ENV['DB_PASS'] ?? getenv('DB_PASS') ?: "";
+    }
 
     public function getConnection() {
         $this->conn = null;
