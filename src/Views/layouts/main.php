@@ -17,7 +17,12 @@
                 <?php if (isset($_SESSION['user_id'])): ?>
                     <li><a href="/dashboard">Dashboard</a></li>
                     <li><a href="/products">Productos</a></li>
-                    <li><a href="/logout">Cerrar Sesión (<?php echo htmlspecialchars($_SESSION['user_name']); ?>)</a></li>
+                    <li>
+                        <form action="/logout" method="POST" style="display:inline;">
+                            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+                            <button type="submit" style="background:none; border:none; color:inherit; cursor:pointer; font:inherit; padding:0;">Cerrar Sesión (<?php echo htmlspecialchars($_SESSION['user_name']); ?>)</button>
+                        </form>
+                    </li>
                 <?php else: ?>
                     <li><a href="/login">Iniciar Sesión</a></li>
                 <?php endif; ?>

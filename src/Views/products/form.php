@@ -6,6 +6,7 @@
     <?php endif; ?>
 
     <form action="<?php echo isset($product['id_producto']) ? '/products/update' : '/products/store'; ?>" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         <?php if (isset($product['id_producto'])): ?>
             <input type="hidden" name="id_producto" value="<?php echo $product['id_producto']; ?>">
         <?php endif; ?>

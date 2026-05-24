@@ -7,14 +7,18 @@ abstract class Controller {
         $viewPath = __DIR__ . "/../Views/" . $view . ".php";
 
         if (file_exists($viewPath)) {
-            // Soporte para layout
+            // Generar token CSRF si no existe
+            if (empty($_SESSION['csrf_token'])) {
+                $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+            }
+
             ob_start();
-            require_once $viewPath;
+            require $viewPath;
             $content = ob_get_clean();
 
             $layoutPath = __DIR__ . "/../Views/layouts/main.php";
             if (file_exists($layoutPath)) {
-                require_once $layoutPath;
+                require $layoutPath;
             } else {
                 echo $content;
             }
@@ -23,6 +27,13 @@ abstract class Controller {
             http_response_code(500);
             echo "Error interno del servidor.";
             exit;
+        }
+    }
+
+    protected function validateCSRF() {
+        if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== ($_SESSION['csrf_token'] ?? '')) {
+            http_response_code(403);
+            die("Error CSRF: Token inválido o ausente.");
         }
     }
 

@@ -35,8 +35,8 @@ This project is a PHP + MySQL web application built with an MVC architecture. Fo
         ```env
         DB_HOST=localhost
         DB_NAME=basekilla2
-        DB_USER=root
-        DB_PASS=
+        DB_USER=your_db_user_here
+        DB_PASS=your_db_password_here
         ```
 
 5.  **Hash Existing Passwords**:
@@ -61,4 +61,4 @@ This project is a PHP + MySQL web application built with an MVC architecture. Fo
 -   **Dashboard**: Overview of stock and sales.
 -   **Products**: Full CRUD with search, pagination, and image upload.
 -   **Exports**: Download product lists in PDF, Excel, or CSV formats.
--   **Security**: Prepared statements, password hashing, and Role-Based Access Control (RBAC).
+-   **Security**: Prepared statements, password hashing, CSRF protection, and Role-Based Access Control (RBAC).

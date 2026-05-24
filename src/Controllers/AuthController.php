@@ -21,6 +21,7 @@ class AuthController extends Controller {
 
     public function login() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $this->validateCSRF();
             $email = Validator::clean($_POST['email']);
             $password = $_POST['password'];
 
@@ -43,7 +44,13 @@ class AuthController extends Controller {
     }
 
     public function logout() {
-        session_destroy();
-        $this->redirect('/login');
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $this->validateCSRF();
+            session_destroy();
+            $this->redirect('/login');
+        } else {
+            http_response_code(405);
+            echo "Method Not Allowed";
+        }
     }
 }

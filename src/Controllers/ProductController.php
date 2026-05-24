@@ -42,12 +42,13 @@ class ProductController extends Controller {
 
     public function create() {
         $this->checkRole(['admin', 'encargadoAlmacen']);
-        $this->render('products/form', ['title' => 'Nuevo Producto']);
+        $this->render('products/form', ['title' => 'Nuevo Producto', 'product' => []]);
     }
 
     public function store() {
         $this->checkRole(['admin', 'encargadoAlmacen']);
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $this->validateCSRF();
             $data = [
                 'nombre' => Validator::clean($_POST['nombre']),
                 'descripcion' => Validator::clean($_POST['descripcion']),
@@ -94,14 +95,27 @@ class ProductController extends Controller {
     public function update() {
         $this->checkRole(['admin', 'encargadoAlmacen']);
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $this->validateCSRF();
             $id = (int)$_POST['id_producto'];
+
+            // Obtener datos actuales para mantener la imagen si no se sube una nueva
+            $currentProduct = $this->productModel->getById($id, 'id_producto');
+
             $data = [
                 'nombre' => Validator::clean($_POST['nombre']),
                 'descripcion' => Validator::clean($_POST['descripcion']),
                 'precio' => (float)$_POST['precio'],
                 'stock' => (int)$_POST['stock'],
-                'id_categoria' => (int)$_POST['id_categoria']
+                'id_categoria' => (int)$_POST['id_categoria'],
+                'imagen' => $currentProduct['imagen'] // Mantener imagen actual por defecto
             ];
+
+            if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
+                $imgName = time() . '_' . $_FILES['imagen']['name'];
+                if (move_uploaded_file($_FILES['imagen']['tmp_name'], __DIR__ . '/../../public/img/' . $imgName)) {
+                    $data['imagen'] = $imgName;
+                }
+            }
 
             if ($this->productModel->update($id, $data)) {
                 $this->redirect('/products?msg=updated');
@@ -117,11 +131,14 @@ class ProductController extends Controller {
 
     public function delete() {
         $this->checkRole(['admin']);
-        $id = (int)($_GET['id'] ?? 0);
-        if ($this->productModel->delete($id, 'id_producto')) {
-            $this->redirect('/products?msg=deleted');
-        } else {
-            $this->redirect('/products?error=deletefail');
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $this->validateCSRF();
+            $id = (int)($_POST['id'] ?? 0);
+            if ($this->productModel->delete($id, 'id_producto')) {
+                $this->redirect('/products?msg=deleted');
+            } else {
+                $this->redirect('/products?error=deletefail');
+            }
         }
     }
 

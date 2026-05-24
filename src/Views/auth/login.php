@@ -4,6 +4,7 @@
         <div class="alert alert-danger"><?php echo $error; ?></div>
     <?php endif; ?>
     <form action="/login" method="POST">
+        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         <div class="form-group">
             <label for="email">Correo Electrónico</label>
             <input type="email" name="email" id="email" required>

@@ -17,7 +17,13 @@ class Router {
 
         foreach ($this->routes as $route) {
             if ($route['method'] === $method && $route['path'] === $path) {
-                $this->executeHandler($route['handler']);
+                try {
+                    $this->executeHandler($route['handler']);
+                } catch (\Exception $e) {
+                    error_log("Router Error: " . $e->getMessage());
+                    http_response_code(500);
+                    echo "500 Internal Server Error";
+                }
                 return;
             }
         }
@@ -35,12 +41,10 @@ class Router {
             if (method_exists($controller, $method)) {
                 $controller->$method();
             } else {
-                http_response_code(500);
-                echo "Método $method no encontrado en $controllerClass";
+                throw new \Exception("Method $method not found in $controllerClass");
             }
         } else {
-            http_response_code(500);
-            echo "Controlador $controllerClass no encontrado";
+            throw new \Exception("Controller $controllerClass not found");
         }
     }
 }

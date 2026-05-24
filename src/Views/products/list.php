@@ -27,7 +27,7 @@
                         <tr>
                             <td>
                                 <?php if ($product['imagen']): ?>
-                                    <img src="/img/<?php echo $product['imagen']; ?>" alt="<?php echo htmlspecialchars($product['nombre']); ?>" width="50">
+                                    <img src="/img/<?php echo htmlspecialchars($product['imagen']); ?>" alt="<?php echo htmlspecialchars($product['nombre']); ?>" width="50">
                                 <?php else: ?>
                                     <span>Sin imagen</span>
                                 <?php endif; ?>
@@ -38,7 +38,11 @@
                             <td><?php echo $product['stock']; ?></td>
                             <td>
                                 <a href="/products/edit?id=<?php echo $product['id_producto']; ?>" class="btn-edit">Editar</a>
-                                <a href="/products/delete?id=<?php echo $product['id_producto']; ?>" class="btn-delete" onclick="return confirm('¿Está seguro?')">Eliminar</a>
+                                <form action="/products/delete" method="POST" style="display:inline;" onsubmit="return confirm('¿Está seguro?')">
+                                    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+                                    <input type="hidden" name="id" value="<?php echo $product['id_producto']; ?>">
+                                    <button type="submit" class="btn-delete" style="border:none; cursor:pointer;">Eliminar</button>
+                                </form>
                             </td>
                         </tr>
                     <?php endforeach; ?>
