@@ -1,0 +1,386 @@
+/* ========== RESET Y ESTILOS BASE ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #d946a6;
+    --secondary-color: #f472b6;
+    --dark-bg: #1a1a1a;
+    --light-bg: #f8f8f8;
+    --text-dark: #333;
+    --text-light: #666;
+    --border-color: #e0e0e0;
+    --success: #10b981;
+    --error: #ef4444;
+    --warning: #f59e0b;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--light-bg);
+    line-height: 1.6;
+}
+
+/* ========== HEADER ========== */
+header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+}
+
+nav a:hover {
+    opacity: 0.8;
+}
+
+.iconos-acciones {
+    display: flex;
+    gap: 1rem;
+}
+
+.iconos-acciones a {
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.iconos-acciones a:hover {
+    transform: scale(1.1);
+}
+
+/* ========== MENU HAMBURGUESA ========== */
+.menu-alternar {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-alternar span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+/* ========== MAIN ========== */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* ========== SECCIONES ========== */
+section {
+    margin-bottom: 3rem;
+}
+
+section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+/* ========== GRILLAS DE PRODUCTOS ========== */
+.rejillaProductos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.tarjetaProducto, .articuloProducto {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjetaProducto:hover, .articuloProducto:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.tarjetaProducto img, .articuloProducto img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.tarjetaProducto h3, .articuloProducto h3 {
+    padding: 1rem 1rem 0.5rem;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+}
+
+.tarjetaProducto p, .articuloProducto p {
+    padding: 0 1rem 1rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* ========== BOTONES ========== */
+.btnAccion {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btnAccion.principal {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btnAccion.principal:hover {
+    background: #c2185b;
+}
+
+.btnAccion.secundario {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btnAccion.secundario:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* ========== BANNER PRINCIPAL ========== */
+.bannerPrincipal {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 4rem 2rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.bannerPrincipal h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.bannerPrincipal p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.botonesBanner {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ========== FOOTER ========== */
+footer {
+    background: var(--dark-bg);
+    color: white;
+    padding: 3rem 2rem;
+    margin-top: 3rem;
+}
+
+.contenedor-pie {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.columna-pie h4 {
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+.columna-pie ul {
+    list-style: none;
+}
+
+.columna-pie a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.columna-pie a:hover {
+    color: var(--secondary-color);
+}
+
+.columna-pie li {
+    margin-bottom: 0.5rem;
+}
+
+.newsletter form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.newsletter input, .newsletter select {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+}
+
+.newsletter button {
+    padding: 0.75rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.newsletter button:hover {
+    background: #c2185b;
+}
+
+.pie-social {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.pie-social a {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: background 0.3s ease;
+}
+
+.pie-social a:hover {
+    background: #c2185b;
+}
+
+.whatsapp {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    background: #25d366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.whatsapp:hover {
+    transform: scale(1.1);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .menu-alternar {
+        display: flex;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    nav ul.activo {
+        display: flex;
+    }
+
+    .bannerPrincipal h1 {
+        font-size: 1.8rem;
+    }
+
+    .rejillaProductos {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    section h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .bannerPrincipal {
+        padding: 2rem 1rem;
+    }
+
+    .bannerPrincipal h1 {
+        font-size: 1.5rem;
+    }
+
+    .botonesBanner {
+        flex-direction: column;
+    }
+
+    .rejillaProductos {
+        grid-template-columns: 1fr;
+    }
+
+    .whatsapp {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        bottom: 1rem;
+        right: 1rem;
+    }
+}
